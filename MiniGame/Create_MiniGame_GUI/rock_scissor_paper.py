@@ -82,6 +82,8 @@ m.setSpatk(m.getType())
 class Game(object):
     def __init__(self):
         self.turn = 00
+        self.pp=0
+        self.mm=0
         
     def randomMonster(self):
         HSP = [0,1,2]
@@ -89,12 +91,25 @@ class Game(object):
     
     def check(self,H1):
         if (H1 == 0 and self.M1 == 1) or (H1 == 1 and self.M1  == 2) or (H1 == 2 and self.M1  == 0):
-            m.hp -= h.atk
+            self.pp+=1
+            self.mm=0
+            if self.pp==3:
+                m.hp -= h.spatk
+            else:
+                m.hp -= h.atk
 
         elif (H1 == 0 and self.M1 == 2) or (H1 == 1 and self.M1  == 0) or (H1 == 2 and self.M1  == 1):
-            h.hp -= m.atk
+            self.pp=0
+            self.mm+=1
+            if self.mm==3:
+                h.hp -= m.spatk
+            else:
+                h.hp -= m.atk
+            
 
-    
+        else:
+            self.pp=0
+            self.mm=0
 """def game():
     #display()
     print '\n\n'

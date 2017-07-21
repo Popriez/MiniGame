@@ -1,8 +1,10 @@
 ### test sys ###
 #import getpass
 import sys
+import getpass
+user = getpass.getuser()
 #user = getpass.getuser()
-path = "D:/intern/1907"
+path = "C:/Users/"+user+"/Documents/MiniGame"
 
 if not path in sys.path:
     sys.path.append(path)
@@ -10,5 +12,4 @@ if not path in sys.path:
     
 import Create_MiniGame_GUI.miniGameGui as gui
 
-reload(gui)
 

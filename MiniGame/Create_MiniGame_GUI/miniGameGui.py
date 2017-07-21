@@ -1,9 +1,11 @@
 #QtGui.QProgressBar
 
 from PySide import QtGui,QtCore
-import sys
 import random
-path = "D:/intern/1907"
+import getpass
+import sys
+user = getpass.getuser()
+path = "C:/Users/"+user+"/Documents/MiniGame"
 
 if not path in sys.path:
     sys.path.append(path)
@@ -72,12 +74,12 @@ class Main(QtGui.QDialog):
         self.turn = 0
         self.turn_label = QtGui.QLabel("00")
         
-        self.blank = QtGui.QPixmap("blank.png")
-        self.rock = QtGui.QPixmap("rock.png")
-        self.scissor = QtGui.QPixmap("scissor.png")
-        self.paper = QtGui.QPixmap("paper.png")
+        self.blank = QtGui.QPixmap("icon/blank.png")
+        self.rock = QtGui.QPixmap("icon/rock.png")
+        self.scissor = QtGui.QPixmap("icon/scissor.png")
+        self.paper = QtGui.QPixmap("icon/paper.png")
 
-        self.hero_pic = QtGui.QPixmap("charHero.png")
+        self.hero_pic = QtGui.QPixmap("icon/charHero.png")
         self.hero_dis = QtGui.QLabel()
         self.hero_dis.setPixmap (self.hero_pic)
         #self.hero_dis = QtGui.QPushButton("Hero")
@@ -86,7 +88,7 @@ class Main(QtGui.QDialog):
         self.vs = QtGui.QLabel("VS")
         self.monster_card = QtGui.QLabel()
         self.monster_card.setPixmap (self.blank)
-        self.monster_pic = QtGui.QPixmap("charBoss.png")
+        self.monster_pic = QtGui.QPixmap("icon/charBoss.png")
         self.monster_dis = QtGui.QLabel()
         self.monster_dis.setPixmap (self.monster_pic)
         
@@ -94,15 +96,15 @@ class Main(QtGui.QDialog):
         self.monlabel = QtGui.QLabel("MONSTER")
 
         self.c1_btn = QtGui.QPushButton()
-        self.c1_btn.setIcon(QtGui.QIcon("rock.png"))
+        self.c1_btn.setIcon(QtGui.QIcon("icon/rock.png"))
         self.c1_btn.setFixedSize(QtCore.QSize(100,100))
         self.c1_btn.setIconSize(QtCore.QSize(100,100))
         self.c2_btn = QtGui.QPushButton()
-        self.c2_btn.setIcon(QtGui.QIcon("scissor.png"))
+        self.c2_btn.setIcon(QtGui.QIcon("icon/scissor.png"))
         self.c2_btn.setFixedSize(QtCore.QSize(100,100))
         self.c2_btn.setIconSize(QtCore.QSize(100,100))
         self.c3_btn = QtGui.QPushButton()
-        self.c3_btn.setIcon(QtGui.QIcon("paper.png"))
+        self.c3_btn.setIcon(QtGui.QIcon("icon/paper.png"))
         self.c3_btn.setFixedSize(QtCore.QSize(100,100))
         self.c3_btn.setIconSize(QtCore.QSize(100,100))
         
@@ -160,21 +162,21 @@ class Main(QtGui.QDialog):
         self.c3_btn.clicked.connect(self.pressPaper)
 
     def pressRock(self):
-        print "Rock"
+        #print "Rock"
         game.randomMonster()
         self.H1 = 0
         game.check(self.H1)        
         self.show(self.rock)
 
     def pressScissor(self):
-        print "Scissor"
+        #print "Scissor"
         game.randomMonster()
         self.H1 = 1
         game.check(self.H1)
         self.show(self.scissor)
 
     def pressPaper(self):
-        print "Paper"
+        #print "Paper"
         game.randomMonster()
         self.H1 = 2
         game.check(self.H1)
