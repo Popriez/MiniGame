@@ -224,7 +224,7 @@ class Victory(QtGui.QDialog):
 
         self.mainlabel = QtGui.QLabel("YOU WIN")
 
-        self.hero_pic = QtGui.QPixmap("charHero.png")
+        self.hero_pic = QtGui.QPixmap("icon/charHero.png")
         self.hero_dis = QtGui.QLabel()
         self.hero_dis.setPixmap (self.hero_pic)
 
@@ -261,7 +261,7 @@ class Defeted(QtGui.QDialog):
 
         self.mainlabel = QtGui.QLabel("YOU LOSE")
 
-        self.monster_pic = QtGui.QPixmap("charBoss.png")
+        self.monster_pic = QtGui.QPixmap("icon/charBoss.png")
         self.monster_dis = QtGui.QLabel()
         self.monster_dis.setPixmap (self.monster_pic)
 
